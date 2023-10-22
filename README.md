@@ -36,14 +36,18 @@ git submodule update --remote
 
 ## Usage
 
-```javascript
-{
-  module: "MMM-BackgroundYouTube",
-  position: "fullscreen_below",
-  config: {
-    videoID: "dQw4w9WgXcQ",
+To use this module, add it to the modules array in the `config/config.js` file:
+
+```js
+modules:[
+  {
+    module: "MMM-BackgroundYouTube",
+    position: "fullscreen_below",
+    config: {
+      videoID: "dQw4w9WgXcQ",
+    },
   },
-},
+]
 ```
 
 ## FAQ
