@@ -1,7 +1,7 @@
 # MMM-BackgroundYouTube
 
 [MagicMirror] Module - Background YouTube video player. Minimal implemented module to play a YouTube video, multiple videos, or a playlist in the background of your [MagicMirror]. Provide a YouTube Video ID, multiple Video IDs, or a Playlist ID, and enjoy a fullscreen, looping, and muted background.
-
+  
 ## Table of Contents
 
 - [MMM-BackgroundYouTube](#mmm-backgroundyoutube)
