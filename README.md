@@ -85,3 +85,4 @@ No, it is not possible to autoplay with sound without user interaction. Modern b
 ## Credits
 
 This module is based on the original repository by [wickes1](https://github.com/wickes1/MMM-BackgroundYouTube). All modifications are credited accordingly.
+ 
