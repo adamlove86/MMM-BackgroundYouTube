@@ -1,6 +1,6 @@
 # MMM-BackgroundYouTube
 
-[MagicMirror] Module - Background YouTube video player. Minimal implemented module to play a YouTube video in the background of your [MagicMirror]. Provide a YouTube Video ID, and enjoy a fullscreen, looping, and muted background.
+[MagicMirror] Module - Background YouTube video player. Minimal implemented module to play a YouTube video, multiple videos, or a playlist in the background of your [MagicMirror]. Provide a YouTube Video ID, multiple Video IDs, or a Playlist ID, and enjoy a fullscreen, looping, and muted background.
 
 ## Table of Contents
 
@@ -17,38 +17,54 @@
 
 ## Installing
 
-```bash
-# In your MagicMirror directory
-git submodule add -f https://github.com/wickes1/MMM-BackgroundYouTube.git modules/MMM-BackgroundYouTube
+In your MagicMirror directory, run:
+
+```
+git submodule add -f https://github.com/adamlove86/MMM-BackgroundYouTube.git modules/MMM-BackgroundYouTube
 ```
 
 ## Updating
 
-```bash
+To update, run:
+
+```
 git submodule update --remote
 ```
 
 ## Configuration
 
-| Option    | Description                                     | Default |
-| --------- | ----------------------------------------------- | ------- |
-| `videoID` | The YouTube video ID to play in the background. | `""`    |
+| Option      | Description                                                | Default |
+| ----------- | ---------------------------------------------------------- | ------- |
+| `videoID`   | The YouTube video ID to play in the background.           | `""`    |
+| `videoIDs`  | An array of YouTube video IDs to play as a playlist.      | `[]`    |
+| `playlistID`| The YouTube playlist ID to play in the background.        | `""`    |
+
+**Note:** Use either `videoID` and/or `videoIDs` for individual videos or `playlistID` for a playlist. If both are provided, `playlistID` takes precedence.
 
 ## Usage
 
 To use this module, add it to the modules array in the `config/config.js` file:
 
-```js
-modules:[
+```javascript
+modules: [
   {
     module: "MMM-BackgroundYouTube",
     position: "fullscreen_below",
     config: {
+      // Option 1: Single Video
       videoID: "dQw4w9WgXcQ",
+
+      // Option 2: Multiple Videos
+      // videoIDs: ["dQw4w9WgXcQ", "eY52Zsg-KVI", "3JZ_D3ELwOQ"],
+
+      // Option 3: Playlist
+      // playlistID: "PL9tY0BWXOZFtE9k3us_CfC4JZ4XyUjcxg",
     },
   },
 ]
 ```
+
+Uncomment the desired option and provide the appropriate IDs.
 
 ## FAQ
 
@@ -58,10 +74,14 @@ The YouTube video ID is the string of characters after `v=` in the URL of the vi
 
 ### Why my background shows `Video unavailable, Watch on YouTube`?
 
-One of the possible reason is the copyrighted music are not allowed to play in the background.
+One possible reason is that the video has restrictions such as copyright protections that prevent it from being embedded.
 
 ### Can I autoplay with sound?
 
-No, it is not possible to autoplay with sound but no interaction with the browser. Modern browsers will block autoplay with sound. You can read more about it [here](https://developer.chrome.com/blog/autoplay/).
+No, it is not possible to autoplay with sound without user interaction. Modern browsers block autoplay with sound. The videos will play muted automatically.
 
 [MagicMirror]: https://github.com/MichMich/MagicMirror
+
+## Credits
+
+This module is based on the original repository by [wickes1](https://github.com/wickes1/MMM-BackgroundYouTube). All modifications are credited accordingly.
